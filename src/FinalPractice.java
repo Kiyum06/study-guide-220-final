@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class FinalPractice {
     public static void main(String[] args) {
 
@@ -173,5 +176,38 @@ public class FinalPractice {
     }
 
     // POSSIBLE VARIATION: Sum of branch nodes with even values
+
+    // Given a reference to a head node in a linked list of integers, return a
+    // Map<Integer, Integer> containing each value along with the number of times it
+    // shows up.
+    // Example:
+    // Linked List:
+    // 4 -> 34 -> 4 -> 16 -> 4 -> 16 -> 29 -> 8 -> 8
+
+    // Expected Return Map (order is unimportant):
+    // {
+    // 4: 3,
+    // 8: 2,
+    // 16: 2,
+    // 29: 1,
+    // 34: 1
+    // }
+    public static Map<Integer, Integer> valueCounts(ListNode head) {
+        Map<Integer, Integer> countMap = new HashMap<>();
+
+        while (head != null) {
+            int value = head.data;
+
+            if (countMap.containsKey(value)) {
+                countMap.put(value, countMap.get(value) + 1);
+            } else {
+                countMap.put(value, 1);
+            }
+
+            head = head.next;
+        }
+
+        return countMap;
+    }
 
 }

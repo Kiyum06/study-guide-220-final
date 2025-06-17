@@ -1,5 +1,8 @@
 import static org.junit.Assert.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.jupiter.api.Test;
 
 public class FinalPracticeTest {
@@ -259,5 +262,60 @@ public class FinalPracticeTest {
     @Test
     void testSumOddBranchNodes_nullTree() {
         assertEquals(0, FinalPractice.sumOddBranchNodes(null));
+    }
+
+    // 6th method
+    @Test
+    void testValueCounts_multipleDuplicates() {
+        ListNode head = new ListNode(4,
+                new ListNode(34,
+                        new ListNode(4,
+                                new ListNode(16,
+                                        new ListNode(4,
+                                                new ListNode(16,
+                                                        new ListNode(29,
+                                                                new ListNode(8,
+                                                                        new ListNode(8)))))))));
+
+        Map<Integer, Integer> expected = new HashMap<>();
+        expected.put(4, 3);
+        expected.put(34, 1);
+        expected.put(16, 2);
+        expected.put(29, 1);
+        expected.put(8, 2);
+
+        assertEquals(expected, FinalPractice.valueCounts(head));
+    }
+
+    @Test
+    void testValueCounts_singleNode() {
+        ListNode head = new ListNode(7);
+
+        Map<Integer, Integer> expected = new HashMap<>();
+        expected.put(7, 1);
+
+        assertEquals(expected, FinalPractice.valueCounts(head));
+    }
+
+    @Test
+    void testValueCounts_allUnique() {
+        ListNode head = new ListNode(1,
+                new ListNode(2,
+                        new ListNode(3)));
+
+        Map<Integer, Integer> expected = new HashMap<>();
+        expected.put(1, 1);
+        expected.put(2, 1);
+        expected.put(3, 1);
+
+        assertEquals(expected, FinalPractice.valueCounts(head));
+    }
+
+    @Test
+    void testValueCounts_emptyList() {
+        ListNode head = null;
+
+        Map<Integer, Integer> expected = new HashMap<>();
+        assertEquals(expected, FinalPractice.valueCounts(head));
     }
 }// end of class
