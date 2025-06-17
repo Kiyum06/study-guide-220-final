@@ -222,5 +222,42 @@ public class FinalPracticeTest {
     }
 
     // 5th method
+    @Test
+    void testSumOddBranchNodes_givenTree() {
+        TreeNode root = new TreeNode(15,
+                new TreeNode(9,
+                        new TreeNode(8,
+                                new TreeNode(2), new TreeNode(6)),
+                        new TreeNode(11)),
+                new TreeNode(4,
+                        new TreeNode(21,
+                                null, new TreeNode(23)),
+                        new TreeNode(30)));
+        assertEquals(45, FinalPractice.sumOddBranchNodes(root));
+    }
 
+    @Test
+    void testSumOddBranchNodes_onlyLeaves() {
+        TreeNode root = new TreeNode(7);
+        assertEquals(0, FinalPractice.sumOddBranchNodes(root));
+    }
+
+    @Test
+    void testSumOddBranchNodes_onlyEvenBranch() {
+        TreeNode root = new TreeNode(6,
+                new TreeNode(4), new TreeNode(2));
+        assertEquals(0, FinalPractice.sumOddBranchNodes(root));
+    }
+
+    @Test
+    void testSumOddBranchNodes_singleOddBranch() {
+        TreeNode root = new TreeNode(7,
+                new TreeNode(3), null);
+        assertEquals(7, FinalPractice.sumOddBranchNodes(root));
+    }
+
+    @Test
+    void testSumOddBranchNodes_nullTree() {
+        assertEquals(0, FinalPractice.sumOddBranchNodes(null));
+    }
 }// end of class
