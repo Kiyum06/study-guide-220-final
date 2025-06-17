@@ -193,6 +193,22 @@ public class FinalPractice {
     }
 
     // POSSIBLE VARIATION: Sum of branch nodes with even values
+    public static int sumEvenBranchNodes(TreeNode root) {
+        if (root == null)
+            return 0;
+
+        int sum = 0;
+        if (root.left != null || root.right != null) {
+            if (root.data % 2 == 0) {
+                sum += root.data;
+            }
+        }
+
+        sum += sumEvenBranchNodes(root.left);
+        sum += sumEvenBranchNodes(root.right);
+
+        return sum;
+    }
 
     // Given a reference to a head node in a linked list of integers, return a
     // Map<Integer, Integer> containing each value along with the number of times it

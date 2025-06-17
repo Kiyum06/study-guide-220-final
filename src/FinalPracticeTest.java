@@ -291,6 +291,31 @@ public class FinalPracticeTest {
         assertEquals(0, FinalPractice.sumOddBranchNodes(null));
     }
 
+    // sumEvenBranchNodes() method
+    @Test
+    void testSumEvenBranchNodes_typicalTree() {
+        TreeNode root = new TreeNode(10,
+                new TreeNode(5),
+                new TreeNode(8,
+                        new TreeNode(2),
+                        new TreeNode(4)));
+        assertEquals(18, FinalPractice.sumEvenBranchNodes(root));
+    }
+
+    @Test
+    void testSumEvenBranchNodes_noEvenBranches() {
+        TreeNode root = new TreeNode(7,
+                new TreeNode(3),
+                new TreeNode(9));
+        assertEquals(0, FinalPractice.sumEvenBranchNodes(root));
+    }
+
+    @Test
+    void testSumEvenBranchNodes_singleEvenLeaf() {
+        TreeNode root = new TreeNode(4);
+        assertEquals(0, FinalPractice.sumEvenBranchNodes(root));
+    }
+
     // 6th method
     @Test
     void testValueCounts_multipleDuplicates() {
