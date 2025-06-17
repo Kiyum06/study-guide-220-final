@@ -224,6 +224,33 @@ public class FinalPracticeTest {
         assertEquals(0, FinalPractice.sumEvenLeafNodes(root));
     }
 
+    // sumOddLeafNodes() method
+    @Test
+    void testSumOddLeafNodes_mixedLeaves() {
+        TreeNode root = new TreeNode(10,
+                new TreeNode(5,
+                        new TreeNode(4),
+                        new TreeNode(7)),
+                new TreeNode(12,
+                        null,
+                        new TreeNode(9)));
+        assertEquals(16, FinalPractice.sumOddleafNodes(root));
+    }
+
+    @Test
+    void testSumOddLeafNodes_allOddLeaves() {
+        TreeNode root = new TreeNode(5);
+        assertEquals(5, FinalPractice.sumOddleafNodes(root));
+    }
+
+    @Test
+    void testSumOddLeafNodes_noOddLeaves() {
+        TreeNode root = new TreeNode(2,
+                new TreeNode(4),
+                new TreeNode(6));
+        assertEquals(0, FinalPractice.sumOddleafNodes(root));
+    }
+
     // 5th method
     @Test
     void testSumOddBranchNodes_givenTree() {

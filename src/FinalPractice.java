@@ -25,6 +25,7 @@ public class FinalPractice {
     }
 
     /**
+     * linked list: 4 -> 8 -> 15 -> 16 -> 23 -> 42 -> 11 -> 29 -> 34
      * Return the sum of the values at odd indexes in a linked list.
      * 
      * Assumes head is at index 0.
@@ -140,7 +141,23 @@ public class FinalPractice {
     }
 
     // POSSIBLE VARIATION: Sum of leaf nodes with odd values
+    public static int sumOddleafNodes(TreeNode root) {
+        if (root == null)
+            return 0;
 
+        if (root.left == null && root.right == null) {
+            if (root.data % 2 != 0) {
+                return root.data;
+            } else {
+                return 0;
+            }
+        }
+
+        int leftSum = sumOddleafNodes(root.left);
+        int rightSum = sumOddleafNodes(root.right);
+
+        return leftSum + rightSum;
+    }
     // Given a reference to the root of a tree, return the sum of the branch nodes
     // with odd values in the tree. Do not include any even or leaf nodes.
     // Example:
