@@ -176,4 +176,51 @@ public class FinalPracticeTest {
         assertEquals(0, FinalPractice.maxOfLast3(null)); // Null input
     }
 
+    // 4th method
+    @Test
+    void testSumEvenLeafNodes_givenTree() {
+        TreeNode root = new TreeNode(12,
+                new TreeNode(6,
+                        new TreeNode(4,
+                                new TreeNode(3), null),
+                        new TreeNode(8)),
+                new TreeNode(18,
+                        new TreeNode(16),
+                        new TreeNode(20, null, new TreeNode(22))));
+        assertEquals(46, FinalPractice.sumEvenLeafNodes(root));
+    }
+
+    @Test
+    void testSumEvenLeafNodes_onlyOdds() {
+        TreeNode root = new TreeNode(11,
+                new TreeNode(3),
+                new TreeNode(5));
+        assertEquals(0, FinalPractice.sumEvenLeafNodes(root));
+    }
+
+    @Test
+    void testSumEvenLeafNodes_singleEvenLeaf() {
+        TreeNode root = new TreeNode(1, null, new TreeNode(8));
+        assertEquals(8, FinalPractice.sumEvenLeafNodes(root));
+    }
+
+    @Test
+    void testSumEvenLeafNodes_nullTree() {
+        assertEquals(0, FinalPractice.sumEvenLeafNodes(null));
+    }
+
+    @Test
+    void testSumEvenLeafNodes_rootIsEvenLeaf() {
+        TreeNode root = new TreeNode(4);
+        assertEquals(4, FinalPractice.sumEvenLeafNodes(root));
+    }
+
+    @Test
+    void testSumEvenLeafNodes_rootIsOddLeaf() {
+        TreeNode root = new TreeNode(7);
+        assertEquals(0, FinalPractice.sumEvenLeafNodes(root));
+    }
+
+    // 5th method
+
 }// end of class
