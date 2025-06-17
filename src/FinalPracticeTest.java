@@ -121,4 +121,59 @@ public class FinalPracticeTest {
         assertEquals(-1 + -3 + -5, FinalPractice.evenIndexSum(list));
     }
 
+    // 3rd method
+    @Test
+    void testMaxOfLast3_typicalList() {
+        ListNode list = new ListNode(7,
+                new ListNode(3,
+                        new ListNode(19,
+                                new ListNode(21,
+                                        new ListNode(14,
+                                                new ListNode(33,
+                                                        new ListNode(8,
+                                                                new ListNode(26,
+                                                                        new ListNode(11,
+                                                                                new ListNode(5))))))))));
+        assertEquals(26, FinalPractice.maxOfLast3(list)); // Last 3: 26, 11, 5
+    }
+
+    @Test
+    void testMaxOfLast3_exactThreeNodes() {
+        ListNode list = new ListNode(10,
+                new ListNode(20,
+                        new ListNode(5)));
+        assertEquals(20, FinalPractice.maxOfLast3(list)); // Last 3: 10, 20, 5
+    }
+
+    @Test
+    void testMaxOfLast3_allSameValues() {
+        ListNode list = new ListNode(9,
+                new ListNode(9,
+                        new ListNode(9,
+                                new ListNode(9,
+                                        new ListNode(9)))));
+        assertEquals(9, FinalPractice.maxOfLast3(list)); // Last 3: 9, 9, 9
+    }
+
+    @Test
+    void testMaxOfLast3_negativeValues() {
+        ListNode list = new ListNode(-1,
+                new ListNode(-5,
+                        new ListNode(-3,
+                                new ListNode(-7,
+                                        new ListNode(-2)))));
+        assertEquals(-2, FinalPractice.maxOfLast3(list)); // Last 3: -3, -7, -2
+    }
+
+    @Test
+    void testMaxOfLast3_twoNodes() {
+        ListNode list = new ListNode(1, new ListNode(2));
+        assertEquals(0, FinalPractice.maxOfLast3(list)); // Not enough nodes
+    }
+
+    @Test
+    void testMaxOfLast3_nullList() {
+        assertEquals(0, FinalPractice.maxOfLast3(null)); // Null input
+    }
+
 }// end of class

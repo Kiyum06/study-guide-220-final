@@ -71,4 +71,31 @@ public class FinalPractice {
 
         return sum;
     }
+
+    // Given a reference to the head of a linked list, return the largest of only
+    // the last 3 values of the list.
+    // Example:
+    // Linked List:
+    // 7 -> 3 -> 19 -> 21 -> 14 -> 33 -> 8 -> 26 -> 11 -> 5
+    // Expected Answer: 26
+    // Last 3 values are: 26 11 5, the largest of which is 26
+    public static int maxOfLast3(ListNode head) {
+        if (head == null)
+            return 0;
+
+        ListNode a = null;
+        ListNode b = null;
+        ListNode c = null;
+
+        while (head != null) {
+            a = b;
+            b = c;
+            c = head;
+            head = head.next;
+        }
+        if (a == null || b == null || c == null)
+            return 0;
+
+        return Math.max(a.data, Math.max(b.data, c.data));
+    }
 }
